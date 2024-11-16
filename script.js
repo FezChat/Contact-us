@@ -5,6 +5,12 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     const email = document.getElementById('email').value;
     const message = document.getElementById('message').value;
 
+    // Check if the fields are filled
+    if (!email || !message) {
+        alert('Please fill in both fields.');
+        return;
+    }
+
     // Combine the email and message into one string
     const combinedMessage = `Email: ${email}%0AMessage: ${message}`;
 
