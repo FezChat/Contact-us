@@ -21,6 +21,8 @@
             align-items: center;
             color: #fff;
             font-size: 16px;
+            overflow: hidden;
+            position: relative;
         }
 
         h2 {
@@ -30,6 +32,31 @@
             color: #fff;
         }
 
+        /* Sliding Text */
+        .sliding-text {
+            position: absolute;
+            top: 20px;
+            right: -100%;
+            font-size: 36px;
+            font-weight: bold;
+            animation: slideText 10s infinite linear;
+            color: #fff;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes slideText {
+            0% {
+                right: -100%;
+            }
+            50% {
+                right: 50%;
+                transform: translateX(50%);
+            }
+            100% {
+                right: 100%;
+            }
+        }
+
         .form-container {
             background-color: #fff;
             padding: 30px;
@@ -37,6 +64,8 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             width: 100%;
             max-width: 480px;
+            z-index: 1;
+            position: relative;
         }
 
         form {
@@ -99,6 +128,9 @@
     </style>
 </head>
 <body>
+
+    <!-- Sliding text -->
+    <div class="sliding-text">Hello, this is Silva!</div>
 
     <div class="form-container">
         <h2>Contact Silva MD Bot</h2>
