@@ -1,10 +1,12 @@
 <?php
-// contact.php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Sanitize input to prevent injection
     $name = htmlspecialchars(trim($_POST['name']));
     $email = filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL);
     $message = htmlspecialchars(trim($_POST['message']));
+
+    // Debug: Check form data
+    var_dump($_POST); // To see if data is being sent correctly
 
     if (!$name || !$email || !$message) {
         echo "Invalid input. Please fill in all fields correctly.";
