@@ -14,8 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Email configuration
-    $to = "sylivanusmomanyi@gmail.com"; // Your email address
-    $subject = "New Contact Message from Silva MD Bot";
+    $to = "frediezra360@gmail.com"; // Your email address
+    $subject = "New Contact Message from LUCKY MD XFORCE bot";
     $body = "Name: $name\nEmail: $email\n\nMessage:\n$message";
     $headers = "From: $email";
 
