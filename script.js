@@ -1,22 +1,15 @@
-document.getElementById('contactForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent form submission
+document.getElementById('whatsappSubmit').addEventListener('click', function () {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
 
-    // Get the email and message from the form
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-
-    // Check if the fields are filled
-    if (!email || !message) {
-        alert('Please fill in both fields.');
+    if (!email || !message || !name) {
+        alert('Please fill in all fields.');
         return;
     }
 
-    // Combine the email and message into one string
-    const combinedMessage = `Email: ${email}%0AMessage: ${message}`;
-
-    // WhatsApp API URL with the combined message
+    const combinedMessage = `Name: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
     const whatsappUrl = `https://wa.me/255752593977?text=${combinedMessage}`;
 
-    // Redirect to WhatsApp with the message
     window.open(whatsappUrl, '_blank');
 });
