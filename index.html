@@ -168,18 +168,22 @@
 
   <!-- MAIN FORM CONTENT -->
   <main>
-    <div class="form-container">
-      <h2>Contact Fredi AI Lucky Dev</h2>
-      <form id="contactForm">
-        <label for="email">Your Email:</label>
-        <input type="email" id="email" name="email" required placeholder="example@email.com">
+    <form id="contactForm" method="POST" action="contact.php">
+  <label for="name">Your Name:</label>
+  <input type="text" id="name" name="name" required placeholder="Your name">
 
-        <label for="message">Your Message:</label>
-        <textarea id="message" name="message" required placeholder="Type your message here..."></textarea>
+  <label for="email">Your Email:</label>
+  <input type="email" id="email" name="email" required placeholder="example@email.com">
 
-        <button type="submit">Send Message to WhatsApp</button>
-      </form>
-    </div>
+  <label for="message">Your Message:</label>
+  <textarea id="message" name="message" required placeholder="Type your message here..."></textarea>
+
+  <!-- Send to Gmail -->
+  <button type="submit" id="emailSubmit">Send to Email</button>
+
+  <!-- Send to WhatsApp -->
+  <button type="button" id="whatsappSubmit" style="margin-top: 10px; background-color: #25D366;">Send to WhatsApp</button>
+</form>
   </main>
 
   <!-- FOOTER -->
