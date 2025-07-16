@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact Silva MD Bot</title>
+  <title>Contact Lucky Md Xforce Bot Creator</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    /* Global Reset & Theme */
     * {
       margin: 0;
       padding: 0;
@@ -16,41 +16,35 @@
 
     body {
       background: linear-gradient(135deg, #25D366, #128C7E);
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      position: relative;
+      flex-direction: column;
     }
 
-    /* Sliding Text */
     .sliding-text {
-      position: absolute;
-      top: 20px;
-      right: -100%;
       font-size: 36px;
       font-weight: 800;
       animation: slideText 12s infinite linear;
       color: #fff;
       text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
       white-space: nowrap;
+      padding: 20px;
+      text-align: center;
     }
 
     @keyframes slideText {
-      0% {
-        right: -100%;
-      }
-      50% {
-        right: 50%;
-        transform: translateX(50%);
-      }
-      100% {
-        right: 100%;
-      }
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
     }
 
-    /* Form Glass Container */
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
     .form-container {
       background: rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(16px);
@@ -59,8 +53,7 @@
       padding: 40px;
       box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
       max-width: 500px;
-      width: 90%;
-      z-index: 2;
+      width: 100%;
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
@@ -123,44 +116,20 @@
       box-shadow: 0 12px 30px rgba(18, 140, 126, 0.7);
     }
 
-    @media (max-width: 600px) {
-      .form-container {
-        padding: 25px;
-      }
-
-      h2 {
-        font-size: 22px;
-      }
-
-      button {
-        font-size: 16px;
-      }
-    }
-      /* footer menu */  
-   .menu-footer {
-      padding: 15px;
+    footer {
+      background: rgba(0, 0, 0, 0.1);
+      color: rgba(255, 255, 255, 0.6);
       text-align: center;
-      font-size: 12px;
-      color: rgba(255, 255, 255, 0.5);
+      padding: 12px;
+      font-size: 13px;
       border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-   @media (max-width: 600px) {
-      .menu-items {
-       grid-template-columns: 1fr;
-            }
-            
-   .user-info {
-      flex-direction: column;
-            }
-        }
+    }
 
-      /* Facebook page*/
     .contact-fab {
       position: fixed;
       bottom: 15px;
       left: 15px;
-      background: var(--red-primary);
+      background: red;
       width: 50px;
       height: 50px;
       border-radius: 50%;
@@ -178,42 +147,52 @@
     }
 
     @media (max-width: 600px) {
-      .card p {
-        font-size: 13px;
+      .form-container {
+        padding: 25px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      button {
+        font-size: 16px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Sliding Welcome Text -->
-  <div class="sliding-text">👋 Hello, this is Lucky Md Xforce get help with owner!</div>
+  <!-- SLIDING TEXT -->
+  <div class="sliding-text">👋 Hello, this is Lucky Md Xforce — get help with the owner!</div>
 
-  <!-- Modern Contact Form -->
-  <div class="form-container">
-    <h2>Contact Fredi Ai Lucky dev</h2>
-    <form id="contactForm">
-      <label for="email">Your Email:</label>
-      <input type="email" id="email" name="email" required placeholder="example@email.com">
+  <!-- MAIN FORM CONTENT -->
+  <main>
+    <div class="form-container">
+      <h2>Contact Fredi AI Lucky Dev</h2>
+      <form id="contactForm">
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" name="email" required placeholder="example@email.com">
 
-      <label for="message">Your Message:</label>
-      <textarea id="message" name="message" required placeholder="Type your message here..."></textarea>
+        <label for="message">Your Message:</label>
+        <textarea id="message" name="message" required placeholder="Type your message here..."></textarea>
 
-      <button type="submit">Send Message to WhatsApp</button>
-    </form>
-  </div>
+        <button type="submit">Send Message to WhatsApp</button>
+      </form>
+    </div>
+  </main>
 
-    <!-- FOOTER -->
-  <div class="menu-footer">
-            © 2025 FREDI AI | ALL RIGHT RESERVED 
-        </div>
+  <!-- FOOTER -->
+  <footer>
+    © 2025 FREDI AI | ALL RIGHTS RESERVED
+  </footer>
 
-  <!-- CONTACT ICON -->
+  <!-- FACEBOOK ICON -->
   <a href="https://www.facebook.com/FrediEzra" class="contact-fab" title="Fb page">
-    <i class="fas fa-facebook"></i>
-          </a>
+    <i class="fab fa-facebook-f"></i>
+  </a>
 
-    <script src="script.js"></script>
-    
+  <!-- Optional: Add script for functionality -->
+  <script src="script.js"></script>
 </body>
 </html>
