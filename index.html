@@ -1,150 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Silva MD Bot</title>
-    <style>
-        /* Global Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Silva MD Bot</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    /* Global Reset & Theme */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
-        body {
-            background: linear-gradient(to right, #25D366, #128C7E);
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            font-size: 16px;
-            overflow: hidden;
-            position: relative;
-        }
+    body {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
 
-        h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            text-align: center;
-            color: #fff;
-        }
+    /* Sliding Text */
+    .sliding-text {
+      position: absolute;
+      top: 20px;
+      right: -100%;
+      font-size: 36px;
+      font-weight: 800;
+      animation: slideText 12s infinite linear;
+      color: #fff;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+      white-space: nowrap;
+    }
 
-        /* Sliding Text */
-        .sliding-text {
-            position: absolute;
-            top: 20px;
-            right: -100%;
-            font-size: 36px;
-            font-weight: bold;
-            animation: slideText 10s infinite linear;
-            color: #fff;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-        }
+    @keyframes slideText {
+      0% {
+        right: -100%;
+      }
+      50% {
+        right: 50%;
+        transform: translateX(50%);
+      }
+      100% {
+        right: 100%;
+      }
+    }
 
-        @keyframes slideText {
-            0% {
-                right: -100%;
+    /* Form Glass Container */
+    .form-container {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+      max-width: 500px;
+      width: 90%;
+      z-index: 2;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 26px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+
+    input, textarea {
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #333;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    input:focus, textarea:focus {
+      border: 2px solid #25D366;
+    }
+
+    textarea {
+      resize: vertical;
+      height: 120px;
+    }
+
+    button {
+      padding: 15px;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(18, 140, 126, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 30px rgba(18, 140, 126, 0.7);
+    }
+
+    @media (max-width: 600px) {
+      .form-container {
+        padding: 25px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      button {
+        font-size: 16px;
+      }
+    }
+      /* footer menu */  
+   .menu-footer {
+      padding: 15px;
+      text-align: center;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.5);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+   @media (max-width: 600px) {
+      .menu-items {
+       grid-template-columns: 1fr;
             }
-            50% {
-                right: 50%;
-                transform: translateX(50%);
-            }
-            100% {
-                right: 100%;
+            
+   .user-info {
+      flex-direction: column;
             }
         }
 
-        .form-container {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 480px;
-            z-index: 1;
-            position: relative;
-        }
+      /* Facebook page*/
+    .contact-fab {
+      position: fixed;
+      bottom: 15px;
+      left: 15px;
+      background: var(--red-primary);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 15px rgba(255, 59, 63, 0.4);
+      z-index: 1000;
+    }
 
-        form {
-            display: flex;
-            flex-direction: column;
-        }
+    .contact-fab:hover {
+      background: #c0392b;
+    }
 
-        label {
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: #333;
-        }
-
-        input, textarea {
-            padding: 12px;
-            margin-bottom: 20px;
-            border: 2px solid #ccc;
-            border-radius: 8px;
-            font-size: 16px;
-            outline: none;
-            transition: border-color 0.3s ease;
-        }
-
-        input:focus, textarea:focus {
-            border-color: #25D366;
-        }
-
-        textarea {
-            resize: vertical;
-            height: 120px;
-        }
-
-        button {
-            background-color: #25D366;
-            color: white;
-            padding: 15px;
-            font-size: 18px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            font-weight: bold;
-        }
-
-        button:hover {
-            background-color: #128C7E;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 600px) {
-            .form-container {
-                padding: 20px;
-            }
-            button {
-                font-size: 16px;
-                padding: 12px;
-            }
-        }
-
-    </style>
+    @media (max-width: 600px) {
+      .card p {
+        font-size: 13px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Sliding text -->
-    <div class="sliding-text">Hello, this is Silva!</div>
+  <!-- Sliding Welcome Text -->
+  <div class="sliding-text">👋 Hello, this is Lucky Md Xforce get help with owner!</div>
 
-    <div class="form-container">
-        <h2>Contact Silva MD Bot</h2>
-        <form id="contactForm">
-            <label for="email">Your Email:</label>
-            <input type="email" id="email" name="email" required placeholder="Enter your email">
+  <!-- Modern Contact Form -->
+  <div class="form-container">
+    <h2>Contact Fredi Ai Lucky dev</h2>
+    <form id="contactForm">
+      <label for="email">Your Email:</label>
+      <input type="email" id="email" name="email" required placeholder="example@email.com">
 
-            <label for="message">Your Message:</label>
-            <textarea id="message" name="message" required placeholder="Enter your message"></textarea>
+      <label for="message">Your Message:</label>
+      <textarea id="message" name="message" required placeholder="Type your message here..."></textarea>
 
-            <button type="submit">Send Message to WhatsApp</button>
-        </form>
-    </div>
+      <button type="submit">Send Message to WhatsApp</button>
+    </form>
+  </div>
+
+    <!-- FOOTER -->
+  <div class="menu-footer">
+            © 2025 FREDI AI | ALL RIGHT RESERVED 
+        </div>
+
+  <!-- CONTACT ICON -->
+  <a href="https://www.facebook.com/FrediEzra" class="contact-fab" title="Fb page">
+    <i class="fas fa-facebook"></i>
+          </a>
 
     <script src="script.js"></script>
+    
 </body>
 </html>
