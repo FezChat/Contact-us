@@ -19,6 +19,7 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      overflow: hidden;
     }
 
     .sliding-text {
@@ -42,7 +43,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 40px 20px;
     }
 
     .form-container {
@@ -86,7 +86,6 @@
       background: rgba(255, 255, 255, 0.9);
       color: #333;
       outline: none;
-      transition: 0.3s;
     }
 
     input:focus, textarea:focus {
@@ -166,26 +165,26 @@
   <!-- SLIDING TEXT -->
   <div class="sliding-text">👋 Hello, this is Lucky Md Xforce — get help with the owner!</div>
 
-  <!-- MAIN FORM CONTENT -->
-  <div class="form-container">
-      <h2>Contact Fredi AI Lucky Dev</h2>
+  <!-- MAIN CONTENT -->
   <main>
-    <form id="contactForm" method="POST" action="contact.php">
-  <label for="name">Your Name:</label>
-  <input type="text" id="name" name="name" required placeholder="Your name">
+    <div class="form-container">
+      <h2>Contact Fredi AI Lucky Dev</h2>
+      <form id="contactForm">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required placeholder="Your name">
 
-  <label for="email">Your Email:</label>
-  <input type="email" id="email" name="email" required placeholder="example@email.com">
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" name="email" required placeholder="example@email.com">
 
-  <label for="message">Your Message:</label>
-  <textarea id="message" name="message" required placeholder="Type your message here..."></textarea>
+        <label for="message">Your Message:</label>
+        <textarea id="message" name="message" required placeholder="Type your message here..."></textarea>
 
-  <!-- Send to Gmail -->
-  <button type="submit" id="emailSubmit">Send to Email</button>
+        <!-- Send to Gmail -->
+        <button type="submit" id="emailSubmit">Send to Email</button>
 
-  <!-- Send to WhatsApp -->
-  <button type="button" id="whatsappSubmit" style="margin-top: 10px; background-color: #25D366;">Send to WhatsApp</button>
-</form>
+        <!-- Send to WhatsApp -->
+        <button type="button" id="whatsappSubmit" style="margin-top: 10px; background-color: #25D366;">Send to WhatsApp</button>
+      </form>
     </div>
   </main>
 
@@ -199,7 +198,42 @@
     <i class="fab fa-facebook-f"></i>
   </a>
 
-  <!-- Optional: Add script for functionality -->
-  <script src="script.js"></script>
+  <!-- JS Logic -->
+  <script>
+    // WhatsApp submission
+    document.getElementById('whatsappSubmit').addEventListener('click', function () {
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      if (!name || !email || !message) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      const combinedMessage = `Hello, I am ${name}%0AEmail: ${email}%0AMessage: ${message}`;
+      const whatsappUrl = `https://wa.me/255752593977?text=${combinedMessage}`;
+
+      window.open(whatsappUrl, '_blank');
+    });
+
+    // Email submission (POST to email API)
+    document.getElementById('contactForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message })
+      });
+
+      const result = await response.text();
+      alert(result);
+    });
+  </script>
 </body>
 </html>
